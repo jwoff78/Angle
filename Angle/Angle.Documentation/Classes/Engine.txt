@@ -1,6 +1,0 @@
-﻿The engine class is the main interface to the entire project.
-
-to use it all you have to do is this:
-
-Engine en = new Engine();
-en.Run({english code});

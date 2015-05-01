@@ -8,5 +8,11 @@ namespace Angle.Core
 {
     public class Engine
     {
+
+        public void Run(string English)
+        {
+
+        }
+
     }
 }
