@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle", "Angle\Angle.csproj", "{9F512796-AE6C-4B5E-B506-3238E21506C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle.Core", "Angle.Core\Angle.Core.csproj", "{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle.Documentation", "Angle.Documentation\Angle.Documentation.csproj", "{4363A95B-632E-47EA-9B90-22F94CF63F32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F512796-AE6C-4B5E-B506-3238E21506C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F512796-AE6C-4B5E-B506-3238E21506C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F512796-AE6C-4B5E-B506-3238E21506C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F512796-AE6C-4B5E-B506-3238E21506C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4363A95B-632E-47EA-9B90-22F94CF63F32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4363A95B-632E-47EA-9B90-22F94CF63F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4363A95B-632E-47EA-9B90-22F94CF63F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4363A95B-632E-47EA-9B90-22F94CF63F32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
