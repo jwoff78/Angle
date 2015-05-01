@@ -57,6 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="bin\Debug\Root\Bootstrap\Form.ec" />
+    <None Include="bin\Debug\Root\Bootstrap\Print.ec" />
+    <None Include="bin\Debug\Root\Bootstrap\SetForm.ec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Angle.Core\Angle.Core.csproj">
@@ -68,6 +71,11 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Root\Refinerys\Form.js" />
+    <Content Include="bin\Debug\Root\Refinerys\Print.js" />
+    <Content Include="bin\Debug\Root\Refinerys\SetForm.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
