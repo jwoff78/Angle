@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F818C99D-922D-49D9-96FA-E40C48231467}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECLang</RootNamespace>
+    <AssemblyName>ECLang</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\EcIDE\References\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SharpHsql">
+      <HintPath>..\EcIDE\References\SharpHsql.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IVisitableNode.cs" />
+    <Compile Include="EnumerationExtensions.cs" />
+    <Compile Include="Framework\Math\MathParser.cs" />
+    <Compile Include="Framework\Program.cs" />
+    <Compile Include="Framework\sql.cs" />
+    <Compile Include="Framework\WindowBuilder.cs" />
+    <Compile Include="GrammarBuilder.cs" />
+    <Compile Include="Internal\AST\Statements\AttributeStmt.cs" />
+    <Compile Include="Internal\AST\Statements\DelStmt.cs" />
+    <Compile Include="Internal\AST\Statements\ForEachStmt.cs" />
+    <Compile Include="Internal\AST\Statements\ImportStmt.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Internal\AST\Expression.cs" />
+    <Compile Include="Internal\AST\Grammar.cs" />
+    <Compile Include="Internal\AST\IAst.cs" />
+    <Compile Include="Internal\AST\MultilineStatement.cs" />
+    <Compile Include="Internal\AST\RegexPattern.cs" />
+    <Compile Include="Internal\AST\RegexPatterns.cs" />
+    <Compile Include="Internal\AST\Statement.cs" />
+    <Compile Include="Internal\AST\Statements\CallStmt.cs" />
+    <Compile Include="Internal\AST\Statements\CommentStmt.cs" />
+    <Compile Include="Internal\AST\Statements\ForStmt.cs" />
+    <Compile Include="Internal\AST\Statements\IfStmt.cs" />
+    <Compile Include="Internal\AST\Statements\DeIncreaseStmt.cs" />
+    <Compile Include="Internal\AST\Statements\SwitchStmt.cs" />
+    <Compile Include="Internal\AST\Statements\ModeStmt.cs" />
+    <Compile Include="Internal\AST\Statements\ThrowStmt.cs" />
+    <Compile Include="Internal\AST\Statements\TryCatchStmt.cs" />
+    <Compile Include="Internal\AST\Statements\ObjCallStmt.cs" />
+    <Compile Include="Internal\AST\Statements\DecSetStmt.cs" />
+    <Compile Include="Internal\AST\Statements\DecStmt.cs" />
+    <Compile Include="Internal\AST\Statements\StatmentVarHandler.cs" />
+    <Compile Include="Internal\AST\Statements\WhileStmt.cs" />
+    <Compile Include="Internal\Attributes\AttributeManager.cs" />
+    <Compile Include="Internal\Attributes\Base\Attribute.cs" />
+    <Compile Include="Internal\Binary\IModule.cs" />
+    <Compile Include="Internal\Binary\Modules\ResourcesModule.cs" />
+    <Compile Include="Internal\Binary\Modules\FilesystemModule.cs" />
+    <Compile Include="Internal\Binary\Reader.cs" />
+    <Compile Include="Internal\Binary\Writer.cs" />
+    <Compile Include="Internal\Brainfuck.cs" />
+    <Compile Include="Internal\CodeBlock.cs" />
+    <Compile Include="Internal\DelegateBuilder.cs" />
+    <Compile Include="Internal\EcCustomClass.cs" />
+    <Compile Include="Internal\EcFileFormat.cs" />
+    <Compile Include="Internal\MathParser.cs" />
+    <Compile Include="Internal\MathsExspretionHandler.cs" />
+    <Compile Include="Internal\Operator.cs" />
+    <Compile Include="Internal\OperatorCollection.cs" />
+    <Compile Include="Internal\Operators.cs" />
+    <Compile Include="Internal\PrimitivesManager.cs" />
+    <Compile Include="Internal\Primitives\Base\Primitive.cs" />
+    <Compile Include="Internal\Primitives\EcArray.cs" />
+    <Compile Include="Internal\Primitives\EcBool.cs" />
+    <Compile Include="Internal\Primitives\EcExpression.cs" />
+    <Compile Include="Internal\Primitives\EcNumber.cs" />
+    <Compile Include="Internal\Primitives\EcObject.cs" />
+    <Compile Include="Internal\Primitives\EcLambda.cs" />
+    <Compile Include="Internal\Primitives\EcObjectCallStmt.cs" />
+    <Compile Include="Internal\Primitives\EcRegexp.cs" />
+    <Compile Include="Internal\Primitives\EcString.cs" />
+    <Compile Include="Internal\Primitives\Fuck.cs" />
+    <Compile Include="Internal\Reference.cs" />
+    <Compile Include="Internal\Tables\ErrorTable.cs" />
+    <Compile Include="Internal\Tables\FunctionTable.cs" />
+    <Compile Include="Internal\Method.cs" />
+    <Compile Include="Internal\Tables\SymbolTable.cs" />
+    <Compile Include="Internal\Parser.cs" />
+    <Compile Include="Internal\ThrowObject.cs" />
+    <Compile Include="IVisitor.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CallVisitor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Internal\ExpressionGrammer.txt" />
+    <Content Include="Internal\Grammar.txt" />
+    <Content Include="TestCode.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

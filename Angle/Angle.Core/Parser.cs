@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Angle.Core
 {
-    public class Engine
+    public class Parser
     {
-
-        public void Run(string English)
-        {
-            TokenResolver.LoadTokens();
-        }
-
     }
 }

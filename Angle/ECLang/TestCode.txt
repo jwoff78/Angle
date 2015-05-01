@@ -1,0 +1,4 @@
+﻿import System
+Console.WriteLine("Please use Eclang IDE");
+Console.WriteLine("Press a key to continue ...");
+Console.ReadKey();

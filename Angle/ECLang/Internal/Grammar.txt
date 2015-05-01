@@ -1,0 +1,74 @@
+﻿name := ([_a-zA-Z](([_a-zA-Z0-9])?)+)
+value := (((([_a-zA-Z](([_a-zA-Z0-9])?)+(\.{0,})?(.*)?)|("\w{0,}")|((([+-]?)[0-9]+)(\.[0-9]+)?))( (.*))?)|(.*)|<array>|<bool>|<newobj>|<condition>)
+primitives := (number|regexp|object|string|bool|array|null|fuck)
+
+array := \[.*((,\s+.*)?)+\]
+bool := [tT]rue|[Ff]alse
+number := ((([+-]?)[0-9]+)(\.[0-9]+)?)
+regexp := /.+/g(?:[mi]+)?
+fuck := [+<>\[\].-]+
+lambda := (<name>*|\((<name>*,\s+)+\))\s+=\>\s+<value>
+
+ref := ref (?<Name><name>)
+
+vardec := dec\s+(?<Name><name>)\s+(:\s+(?<Type><primitives>)\s+)?=\s+(?<Value><value>)
+varset := (?<Name>([_a-zA-Z](([_a-zA-Z0-9\.])?)+))(\[[0-9]*\])?\s+(?<op>(=|\+=|-=))\s+(?<Value><value>)
+
+delvar := [Dd]el (?<Name><name>)
+
+comment := #.*+
+mcomment := ##.*|\n+##
+
+newobj := [Nn]ew (<name>)\(\)
+
+attribute := @.*
+
+call := (?<funcName>([_a-zA-Z][_a-zA-Z0-9]+))\(((?<params>(((([_a-zA-Z][_a-zA-Z0-9\s,"]*)|".+"|<call>|<newobj>)( (.*))?)))?\))
+callval := (?<funcName>([a-zA-Z][a-zA-Z0-9]+)\((.*)\))
+objcl := ((?<target><name>)(\.)?)+((<call>))+
+
+defstart := [Dd]ef (?<funcName>([_a-zA-Z](([_a-zA-Z0-9])?)+))\(\)\s+(: (?<Type><primitives>))?
+defend := [eE]nd [Dd]ef
+
+return := return (?<Value><value>)
+
+condition := ((?<left><value>) (?<operator>(<|\||>|==|!=)) (?<right><value>)|(?<val>(?:true|false)))
+
+ifstart := [iI]f <condition>
+elseif := [Ee]lse [iI]f <condition>
+else := [Ee]lse
+ifend := [eE]nd ([iI]f)
+
+whilestart := [Ww]hile <condition>
+whileend := [eE]nd [wW]hile
+
+forstart := [fF]or (?<Name><name>) = (?<Type><value>)(\, )(?<left><value>) (?<operator>(<|\||>|==|!=)) (?<right><value>)\, ((?<Forop>((\+\+)|(\-\-)))(,\s+[Ss]tep\s+(?<step><value>)?)?)
+forend := [eE]nd [fF]or
+
+foreachstart := [fF]oreach (?<Name><name>) [Ii]n (?<In><name>)((\s*[Cc]hoice\s*(?<Choice><name>))?)
+foreachend := [Ee]nd [fF]oreach
+
+continue := [Cc]ontinue
+
+trycatchstart := [Tt]ry
+throw := [Tt]hrow (?<Name>(<name>|<value>))
+catch := catch (?<Name><name>)
+finally := [Ff]inally
+trycatchend := [Ee]nd [Tt]ry
+
+switchstart := [Ss]witch (?<Name>(<name>|<value>))
+case := [Cc]ase (?<Name>(<name>|<value>)):
+default := [Dd]efault:
+break := [Bb]reak
+switchend := [Ee]nd [Ss]witch
+
+label := (?<Name><name>):
+goto := [Gg]oto (?<Name><name>)
+is := (?<Name><name>) [Ii]s (?<Type><name>)
+
+import := [iI]mport ((\<)|(\"))?(?<NameSpace>(.*))((\>)|(\"))?
+mode := ([Mm]ode|[Uu]se) "(?<type>([a-zA-Z]*))"
+
+include := ^\s*\[Ii]nclude\s+(?<type>["<]).*\1
+
+deincrease := (?<Name><name>)(?<op>(\+\+|--))
