@@ -45,6 +45,7 @@
     <Compile Include="Lexser.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefineResolver.cs" />
     <Compile Include="TokenResolver.cs" />
   </ItemGroup>
   <ItemGroup>
