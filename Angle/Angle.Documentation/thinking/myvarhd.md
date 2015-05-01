@@ -9,6 +9,11 @@ i use this just to lay down some info and get my head in order, and my ideas my 
 ## Stuff Finshed
 - [X] Create project sceliton
 
+## ideas list(cheacked mean good idea, uncheacked means thinking about it.)
+- [X] Use Eclang engine 
+- [ ] build some speech reonizion abilitys
+
+
 ## some notes:
 * the user will never work with variables directly
 
