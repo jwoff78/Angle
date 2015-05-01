@@ -67,16 +67,25 @@ namespace Angle.Core
     {
         public string Name { get; set; }
         public string Code { get; set; }
+        public string UsedAction { get; set; }
         public string InvokeStatment { get; set; }
+        public string InvokeStatmentBuilded { get; set; }
+        public string InvokeStatmentBuildedEnd { get; set; }
         public List<string> Actions { get; set; }
         public List<string> Imports { get; set; }
         public List<string> Refine { get; set; }
-
+        public string[] ParamsArray { get; set; }
+        public string[] ParamsArrayTrimed { get; set; }
+        public string Params { get; set; }
         public Refiner()
         {
             Name = "";
             Code = "";
             InvokeStatment = "";
+            InvokeStatmentBuilded = "";
+            Params = "";
+            ParamsArray = new string[] { "","","","","","","","","","","",""};
+            ParamsArrayTrimed = new string[] { "", "", "", "", "", "", "", "", "", "", "", "" };
             Imports = new List<string>();
             Actions = new List<string>();
             Refine = new List<string>();
@@ -105,13 +114,21 @@ namespace Angle.Core
 
              
                 context.SetParameter("InvokeStatement", InvokeStatment);
+                context.SetParameter("InvokeStatmentBuilded", InvokeStatmentBuilded);
+                context.SetParameter("InvokeStatmentBuildedEnd", InvokeStatmentBuildedEnd);
+                context.SetParameter("ParamsArray", ParamsArray);
+                context.SetParameter("ParamsArrayTrimed", ParamsArrayTrimed);
+                context.SetParameter("Params", Params);
+                context.SetParameter("ParamsTrimed", Params.TrimEnd('"').TrimStart('"'));
                 context.SetParameter("AddActions", new Action<string>(AddActions));
                 context.SetParameter("AddRefine", new Action<string>(AddRefine));
                 context.SetParameter("AddImport", new Action<string>(AddImport));  
+
                 context.Run(Code);
 
                 InvokeStatment = (string)context.GetParameter("InvokeStatement");
-
+                InvokeStatmentBuilded = (string)context.GetParameter("InvokeStatmentBuilded");
+                InvokeStatmentBuildedEnd = (string)context.GetParameter("InvokeStatmentBuildedEnd");
             }
         }
 

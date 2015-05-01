@@ -8,9 +8,10 @@ namespace Angle.Core
 {
     public class Engine
     {
-
+        
         public void Run(string English)
         {
+          
             RefineResolver.LoadRefiners();
             TokenResolver.LoadTokens();
             
@@ -18,6 +19,7 @@ namespace Angle.Core
             var EcCode = Parser.BuildEcCodeFromTokens(tokens);
             ECLang.Engine en = new ECLang.Engine();
             en.Execute(EcCode);
+           
         }
 
     }

@@ -4,16 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Angle
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            Engine en = new Engine();
-            en.Run("Computer create an program that, prints \"Hello World\" to the console.");
-            Console.ReadKey();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+
+           
         }
     }
 }

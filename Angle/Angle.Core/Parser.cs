@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace Angle.Core
     public class Parser
     {
         public static List<string> Import = new List<string>();
+        public static List<string> EndCode = new List<string>();
 
         public static string BuildEcCodeFromTokens(List<List<Token>> inp)
         {
@@ -24,7 +26,13 @@ namespace Angle.Core
                 imports += "import " +  i + "\n";
             }
 
-            return imports + ret;
+            string EndCodes = " ";
+            foreach(var i in EndCode)
+            {
+                EndCodes += "" +  i + "\n";
+            }
+
+            return imports + ret + EndCodes;
         }
 
         private static string BuildLineFromTokenList(List<Token> inp)
@@ -41,7 +49,12 @@ namespace Angle.Core
                 }
             }
             perams = perams.TrimEnd(',');
-            ret += refiner.InvokeStatment.Replace("{Params}", perams);
+            refiner.ParamsArray = perams.Split(',');
+            refiner.ParamsArrayTrimed = perams.Replace("\"", "").Split(',');
+            refiner.Params = perams;
+            refiner.Invoke();
+
+            ret += "\n" + File.ReadAllText(Global.DataSetLocation + "Bootstrap/" + refiner.Name + ".ec") + "\n" + refiner.InvokeStatmentBuilded + "\n";
             
             foreach(var i in refiner.Imports)
             {
@@ -50,6 +63,7 @@ namespace Angle.Core
                     Import.Add(i);
                 }
             }
+            EndCode.Add(refiner.InvokeStatmentBuildedEnd);
 
             return ret;
         }
