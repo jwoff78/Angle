@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Angle.Core
@@ -16,19 +17,17 @@ namespace Angle.Core
         private static  List<string> Actions = new List<string>();
         private static  List<string> Refines = new List<string>();
 
-        [ImportMany("sources")]
-        private static List<ITokenSource> tokensources = new List<ITokenSource>();
+  
 
-        //value patterns
-        private static string ValuePat = @"((([_a-zA-Z](([_a-zA-Z0-9])?)+(\.{0,})?(.*)?)|(" +'"' + '\\' + "w{0,}" + '"' + ")|((([+-]?)[0-9]+)(\\.[0-9]+)?))( (.*))?)";
+        //value patterns                    string
+        private static string ValuePat = " (\"(.*)+\")";
 
         public static void LoadTokens()
         {
             Tokens.Clear();
 
-            var dc = new System.ComponentModel.Composition.Hosting.DirectoryCatalog("path to plugins");
-            var con = new System.ComponentModel.Composition.Hosting.CompositionContainer();
-            con.ComposeParts(tokensources);
+         
+        
 
             //load actions here
             Actions.Clear();
@@ -49,20 +48,63 @@ namespace Angle.Core
             //same here
 
             //add all tokens here
-            Tokens.Add("Begin", new Token() { Name = "Begin", Names = new List<string>() { "Computer", "create ", "an", "program", "named", "that" } , UsesRegex = false;});
+            Tokens.Add("Begin", new Token() { Name = "Begin", Names = new List<string>() { "Computer", "create ", "an", "program", "named", "that" } , UsesRegex = false});
             Tokens.Add("Action", new Token() {Name = "Action", Names = Actions , UsesRegex = false});
             Tokens.Add("Value", new Token(){ Name = "Value", Names = new List<string>{"(?<Value>(" + ValuePat + "))"}});
-            Tokens.Add("Refine", new Token(){Name = "Refine", Names = Refines});
+            Tokens.Add("Refine", new Token(){Name = "Refine", Names = Refines, UsesRegex = false});
 
             //add external token loading here
 
             // here people must be able to add tokens
         }
 
-        public static Token ResolveTextToToken(string t)
+        public static List<Token> ResolveTextToToken(string t)
         {
+            List<Token> ret = new List<Token>();
+            foreach(var i in Tokens)
+            {
+                if(!i.Value.UsesRegex)
+                {
+                    int c = 0;
+                    string fin = "";
+                    foreach(var d in i.Value.Names)
+                    {
+                        if (t.ToLower().Contains(d.ToLower()))
+                        {
+                            c++;
+                           t = t.ToLower().Remove(t.ToLower().IndexOf(d.ToLower()), d.Length);
+                            fin += d.ToLower() + " ";
+                        }
+                    }
+                    if(c > 0)
+                    {
+                        i.Value.Value = fin.Trim();
+                        ret.Add(i.Value);
+                    }
+                }
+                else
+                {
+                    int c = 0;
+                    string fin = "";
+                    foreach (var d in i.Value.Names)
+                    {
+                        if (Regex.IsMatch(t,d))
+                        {
+                            c++;
+                            var m = Regex.Match(t, d);
+                            t = t.Remove(t.IndexOf(m.Value), m.Value.Length);
+                            fin += m.Value + " ";
+                        }
+                    }
+                    if (c > 0)
+                    {
+                        i.Value.Value = fin.Trim();
+                        ret.Add(i.Value);
+                    }
+                }
+            }
 
-            return null;
+            return ret;
         }
 
     }

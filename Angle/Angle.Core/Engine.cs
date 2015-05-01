@@ -12,6 +12,10 @@ namespace Angle.Core
         public void Run(string English)
         {
             TokenResolver.LoadTokens();
+            var tokens = Lexser.GetCodeTokens(English);
+            var EcCode = Parser.BuildEcCodeFromTokens(tokens);
+            ECLang.Engine en = new ECLang.Engine();
+            en.Execute(EcCode);
         }
 
     }

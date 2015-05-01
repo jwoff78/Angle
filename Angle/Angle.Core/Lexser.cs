@@ -20,8 +20,13 @@ namespace Angle.Core
              * add them to a list then ad the list to the statment list
              */
             string[] Statments = English.Split('.');
-
-
+            foreach (var i in Statments)
+            {
+                if (!string.IsNullOrEmpty(i))
+                {
+                    ret.Add(TokenResolver.ResolveTextToToken(i));
+                }
+            }
 
             return ret;
         }
