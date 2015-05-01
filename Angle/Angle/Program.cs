@@ -13,6 +13,7 @@ namespace Angle
         {
             Engine en = new Engine();
             en.Run("Computer create an program that, prints \"Hello World\" to the console.");
+            Console.ReadKey();
         }
     }
 }

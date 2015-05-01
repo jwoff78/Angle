@@ -31,21 +31,21 @@ namespace Angle.Core
 
             //load actions here
             Actions.Clear();
-            Actions.Add("Print");
-            Actions.Add("Prints");
-
-            // add external action loading here
-            
-            //here poeple need to beable to add actions(just an string)
-
-            // load Refines here
             Refines.Clear();
-            Refines.Add("Console");
-            
-                        
-            // add externalleading here
+            foreach(var i in RefineResolver.Refinerys)
+            {
+                foreach(var d in i.Actions)
+                {
+                    Actions.Add(d);
+                }
+                foreach (var d in i.Refine)
+                {
+                    Refines.Add(d);
+                }
 
-            //same here
+            }
+
+          
 
             //add all tokens here
             Tokens.Add("Begin", new Token() { Name = "Begin", Names = new List<string>() { "Computer", "create ", "an", "program", "named", "that" } , UsesRegex = false});
@@ -53,9 +53,7 @@ namespace Angle.Core
             Tokens.Add("Value", new Token(){ Name = "Value", Names = new List<string>{"(?<Value>(" + ValuePat + "))"}});
             Tokens.Add("Refine", new Token(){Name = "Refine", Names = Refines, UsesRegex = false});
 
-            //add external token loading here
-
-            // here people must be able to add tokens
+         
         }
 
         public static List<Token> ResolveTextToToken(string t)
