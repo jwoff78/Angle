@@ -11,7 +11,7 @@ namespace Angle.Core
     {
         public static string BuildIt(string s)
         {
-            return Regex.Replace(s, "(\\\"(([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:)+)?\\.(([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:)+)?)\\\"", delegate(Match match)
+            return Regex.Replace(s, "(\\\"(([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:|\\/)+)?\\.(([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:|\\/)+)?)\\\"", delegate(Match match)
             {
                 string v = match.ToString();
                 return v.Replace(".", "{DOT}");

@@ -20,7 +20,7 @@ namespace Angle.Core
 
 
         //value patterns                    string
-        private static string ValuePat = " (\"([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:)+\")";
+        private static string ValuePat = " (\"([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:|\\/)+\")";
 
         public static void LoadTokens()
         {
