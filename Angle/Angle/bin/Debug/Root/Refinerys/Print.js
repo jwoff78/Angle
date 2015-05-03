@@ -2,6 +2,8 @@
 /* init stuff */
 InvokeStatement = "Console.WriteLine({Params});";
 
+AddActions("display");
+AddActions("displays");
 AddActions("print");
 AddActions("prints");
 

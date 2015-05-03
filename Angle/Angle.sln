@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle", "Angle\Angle.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle.Core", "Angle.Core\Angle.Core.csproj", "{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECLang", "ECLang\ECLang.csproj", "{F818C99D-922D-49D9-96FA-E40C48231467}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{660BF3FE-162B-4FE0-BFDA-D7316BE21464}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angle.Lib", "Angle.Lib\Angle.Lib.csproj", "{2F0C8187-49E3-44A6-9C2A-34A35F96820A}"
@@ -43,16 +41,6 @@ Global
 		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6DE43C09-3A2E-45FD-AE61-6C59C8CFE08E}.Release|x86.ActiveCfg = Release|Any CPU
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Debug|x86.ActiveCfg = Debug|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Debug|x86.Build.0 = Debug|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Release|Any CPU.ActiveCfg = Release|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Release|Mixed Platforms.Build.0 = Release|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Release|x86.ActiveCfg = Release|x86
-		{F818C99D-922D-49D9-96FA-E40C48231467}.Release|x86.Build.0 = Release|x86
 		{660BF3FE-162B-4FE0-BFDA-D7316BE21464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{660BF3FE-162B-4FE0-BFDA-D7316BE21464}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{660BF3FE-162B-4FE0-BFDA-D7316BE21464}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

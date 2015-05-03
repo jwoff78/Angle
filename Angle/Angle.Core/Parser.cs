@@ -18,12 +18,20 @@ namespace Angle.Core
             
             foreach(var i in inp)
             {
-                ret += BuildLineFromTokenList(i) + "\n";
+                try
+                {
+                    ret += BuildLineFromTokenList(i) + "\n";
+                }
+                catch(Exception e)
+                {
+
+                }
+                
             }
             string imports = "";
             foreach(var i in Import)
             {
-                imports += "import " +  i + "\n";
+                imports += "using " +  i + ";\n";
             }
 
             string EndCodes = " ";
@@ -32,7 +40,24 @@ namespace Angle.Core
                 EndCodes += "" +  i + "\n";
             }
 
-            return imports + ret + EndCodes;
+
+            string source =
+                        @"
+            {Using}
+            namespace asm
+            {
+                public static class programm
+                {
+                    public static void Main()
+                    {
+                        {Code}
+                    }
+                }
+            }
+            ";
+
+
+            return source.Replace("{Code}", ret + EndCodes).Replace("{Using}", imports);
         }
 
         private static string BuildLineFromTokenList(List<Token> inp)

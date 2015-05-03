@@ -1,6 +1,6 @@
 
 /* init stuff */
-InvokeStatement = "def frm = new Form()";
+InvokeStatement = "var frm = new Form()";
 
 AddActions("create");
 AddActions("make");
@@ -13,6 +13,6 @@ AddImport("System.Windows.Forms");
 
 /* buildStuff */
 
-InvokeStatmentBuilded = "dec frm = new Form();"
+InvokeStatmentBuilded = "var frm = new Form();"
 
-InvokeStatmentBuildedEnd = "frm" + ".Show()\n";
+InvokeStatmentBuildedEnd = "frm" + ".Show();while(true){Application.DoEvents();}\n";

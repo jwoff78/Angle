@@ -9,6 +9,15 @@ namespace Angle.Core
 {
     public class Lexser
     {
+        public static string BuildIt(string s)
+        {
+            return Regex.Replace(s, "(\\\"(([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:)+)?\\.(([A-Za-z]|[0-9]|\\s|\\{|\\}|\\:)+)?)\\\"", delegate(Match match)
+            {
+                string v = match.ToString();
+                return v.Replace(".", "{DOT}");
+            });
+        }
+
         // return a list with all the statmenst in and ther etokens
         public static List<List<Token>> GetCodeTokens(string English)
         {
@@ -19,7 +28,7 @@ namespace Angle.Core
              * then get all the tokens in a statment
              * add them to a list then ad the list to the statment list
              */
-            string[] Statments = English.Split('.');
+            string[] Statments = BuildIt(English).Split('.');
             foreach (var i in Statments)
             {
                 if (!string.IsNullOrEmpty(i))
