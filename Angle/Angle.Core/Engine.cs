@@ -45,5 +45,14 @@ namespace Angle.Core
 
         }
 
+        public string GetCode(string English)
+        {
+            RefineResolver.LoadRefiners();
+            TokenResolver.LoadTokens();
+
+            var tokens = Lexser.GetCodeTokens(English);
+            return Parser.BuildEcCodeFromTokens(tokens);
+        }
+
     }
 }
